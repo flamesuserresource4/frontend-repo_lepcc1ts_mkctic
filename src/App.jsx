@@ -1,28 +1,51 @@
-import { useState } from 'react'
+import HeroSection from './components/HeroSection';
+import RoleAuth from './components/RoleAuth';
+import DoctorDashboard from './components/DoctorDashboard';
+import UserHome from './components/UserHome';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-white text-slate-900">
+      <Header />
+      <HeroSection />
+      <RoleAuth />
+      <DoctorDashboard />
+      <UserHome />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+function Header() {
+  return (
+    <header className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded bg-sky-600" />
+          <span className="font-semibold">HealthIon</span>
+        </div>
+        <nav className="hidden md:flex items-center gap-6 text-sm text-slate-700">
+          <a href="#auth" className="hover:text-slate-900">Get Started</a>
+          <a href="#doctor-dashboard" className="hover:text-slate-900">Doctor</a>
+          <a href="#user-home" className="hover:text-slate-900">User</a>
+        </nav>
+        <div className="flex items-center gap-2">
+          <a href="#auth" className="px-3 py-1.5 rounded-md bg-sky-600 text-white text-sm">Sign in</a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="py-10 border-t border-slate-200 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-sm text-slate-600">© {new Date().getFullYear()} HealthIon. All rights reserved.</p>
+        <div className="text-sm text-slate-600">Built for accessible, preventive, and data-driven healthcare.</div>
+      </div>
+    </footer>
+  );
+}
+
+export default App;
